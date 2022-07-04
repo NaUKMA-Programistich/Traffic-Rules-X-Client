@@ -25,7 +25,7 @@ object ExamMapper {
             title = name,
             variants = this.answers.map { it.name },
             resultId = correctId(this.answers.map { it.id }, this.correctAnswerId),
-            description = ""
+            description = this.explanation
         )
     }
 

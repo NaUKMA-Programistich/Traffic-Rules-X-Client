@@ -18,6 +18,6 @@ data class QuestionDto(
     val name: String,
     @SerialName("pictureLink")
     val pictureLink: String?,
-    @SerialName("ruleId")
-    val ruleId: Int
+    @SerialName("explanation")
+    val explanation: String?
 )

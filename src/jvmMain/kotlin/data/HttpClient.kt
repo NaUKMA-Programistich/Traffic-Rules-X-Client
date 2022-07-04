@@ -33,7 +33,7 @@ class HttpClient {
             level = LogLevel.ALL
         }
         defaultRequest {
-            url("http://localhost:8080")
+            url("http://localhost:8085")
         }
     }
 

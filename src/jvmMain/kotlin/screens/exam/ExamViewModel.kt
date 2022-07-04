@@ -91,7 +91,6 @@ class ExamViewModel : BaseSharedViewModel<ExamState, ExamAction, ExamEvent>(
         viewModelScope.launch(Dispatchers.Default) {
             val questionsHttp = httpClient.getExam().mapper()
             println(questionsHttp)
-            delay(500)
             questions.addAll(questionsHttp)
             nextQuestion()
         }

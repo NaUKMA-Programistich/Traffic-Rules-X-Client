@@ -2,6 +2,8 @@ package screens.rules
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -47,8 +49,10 @@ fun RuleScreen(rule: Rule) {
                 Text("Назад")
             }
         }
-        rule.points.forEach {
-            ComposablePoints(it)
+        LazyColumn {
+            items(rule.points) {
+                ComposablePoints(it)
+            }
         }
     }
 }

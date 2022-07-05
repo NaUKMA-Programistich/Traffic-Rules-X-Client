@@ -59,7 +59,7 @@ compose.desktop {
         mainClass = "MainKt"
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "Traffic-Rules-X"
+            packageName = "Traffic-Rules-X-Client"
             packageVersion = "1.0.0"
         }
     }

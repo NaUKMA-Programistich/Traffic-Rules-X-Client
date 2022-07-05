@@ -35,6 +35,8 @@ object RulesMapper {
         return Point(
             number = this.number,
             content = this.content
+                .replace("\\r\\n!", "\n!")
+                .replace(")\\r\\n", ")\n")
                 .replace("\\r\\n\\r\\n\"", "\n")
                 .replace("\\r\\n\\r\\n-", "")
                 .replace("\\r\\n\\r\\n", "\n")

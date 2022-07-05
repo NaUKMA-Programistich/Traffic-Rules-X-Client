@@ -1,1 +1,1 @@
-rootProject.name = "Traffic-Rules-X"
+rootProject.name = "Traffic-Rules-X-Client"

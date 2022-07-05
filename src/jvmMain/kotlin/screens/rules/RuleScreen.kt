@@ -1,10 +1,7 @@
 package screens.rules
 
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -24,36 +21,33 @@ import ru.alexgladkov.odyssey.compose.local.LocalRootController
  * Composable rules
  * @param rule - rule
  */
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun RuleScreen(rule: Rule) {
     val navController = LocalRootController.current
-    LazyColumn(
+    Column(
         Modifier.fillMaxSize().padding(12.dp),
         verticalArrangement = Arrangement.spacedBy(4.dp)
     ) {
-        stickyHeader {
-            Row(
-                modifier = Modifier.fillMaxWidth().background(Color.White),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically,
+        Row(
+            modifier = Modifier.fillMaxWidth().background(Color.White),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Text(
+                text = "${rule.number}. ${rule.title}",
+                fontWeight = FontWeight.Bold,
+                fontSize = 16.sp,
+                modifier = Modifier.weight(4f),
+                textAlign = TextAlign.Center
+            )
+            Button(
+                onClick = { navController.popBackStack() },
+                modifier = Modifier.weight(1f)
             ) {
-                Text(
-                    text = "${rule.number}. ${rule.title}",
-                    fontWeight = FontWeight.Bold,
-                    fontSize = 16.sp,
-                    modifier = Modifier.weight(4f),
-                    textAlign = TextAlign.Center
-                )
-                Button(
-                    onClick = { navController.popBackStack() },
-                    modifier = Modifier.weight(1f)
-                ) {
-                    Text("Назад")
-                }
+                Text("Назад")
             }
         }
-        items(rule.points) {
+        rule.points.forEach {
             ComposablePoints(it)
         }
     }
